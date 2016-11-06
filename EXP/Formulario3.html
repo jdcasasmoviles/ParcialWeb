@@ -1,0 +1,933 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Formulario3</title>
+   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">	
+	<link rel="stylesheet" href="css/main.css">
+	<link rel="shortcut icon" href="img/das-icon.ico"/>
+	<style>
+header {
+    background-color: #F2F2F2;
+    color:white;
+    text-align:center;
+	float:left;
+    padding:5px;	 
+}
+nav {
+    line-height:15px;
+    background-color:white;
+    height:500px;
+    width:330px;
+    float:left;
+    padding:5px;	      
+}
+section {
+    width:350px;
+    float:left;
+    padding:10px;	 	 
+}
+footer {
+    background-color:black;
+    color:white;
+    clear:both;
+    text-align:center;
+    padding:5px;	 	 
+}
+</style>
+<script language="javascript" type="javascript" >
+
+</script>
+</head>
+<body>
+<header>
+    <div class="hrAzul"></div>
+	<ul>
+    <div class="rectanguloGris">
+	<li class="col-md-2 text-left"><img height="50" width="570" src="img/das-icon.png"></li>
+	<input class="center" type="image" onClick="parent.location='formulario2.html'" src="img/Atras.png" >
+	<input class="center" type="image" onClick="parent.location='formulario1.html'" src="img/VolverInicio.png" >
+	</div>
+	<li class="hrGris"></li>
+	<FONT SIZE="2"COLOR="BLACK"FACE="Verdana" class="vete-izq"><B>VF :Descripcion de la Unidad Formuladora</B></FONT>
+	</ul>
+</header>
+
+<nav>
+<FONT SIZE="2"COLOR="BLACK"FACE="Verdana" class="vete-izq"><B>Opciones</B></FONT><img align="right" src="img/vineta2.png">
+<hr class="hrNegro">
+<FONT SIZE="2"COLOR="#00BFFF"FACE="Verdana" class="vete-izq"><B>Banco de proyectos</B></FONT>
+<br><br>
+<div id="menu" >
+ <ul>
+  <li><a  href="sorryF2.html" title="..."><img src="img/vineta.png">Bandeja de Proyectos</a></li>
+  <li><a href="sorryF2.html" title="..."><img src="img/vineta.png">Consultas</a></li>
+  <li><a href="Formulario3.html" title="..."><img src="img/vineta.png">Registro Preliminar</a></li>
+ </ul>
+</div>
+<BR>
+<center><FONT SIZE="2"COLOR="BLACK"FACE="Verdana" ><B>Ultimos PIPS Consultados :</B></FONT></center><br><BR>
+1.<a href="sorryF2.html" title="...">SNIP 00222222 Descripcion del PIP C...</a><BR><BR>
+2.<a href="sorryF2.html" title="...">SNIP 00223333 Descripcion del PIP A...</a><BR><BR>
+3.<a href="sorryF2.html" title="...">SNIP 00224444 Descripcion del PIP D...</a><BR><BR>
+4.<a href="sorryF2.html" title="...">SNIP 00224444 Descripcion del PIP E...</a><BR><BR>
+5.<a href="sorryF2.html" title="...">SNIP 00117777 Descripcion del PIP E...</a><BR><BR>
+6.<a href="sorryF2.html" title="...">SNIP 01111183 Descripcion del PIP F...</a><BR><BR>
+7.<a href="sorryF2.html" title="...">SNIP 01111112 Descripcion del PIP H...</a><BR><BR>
+</nav>
+<section>
+    <script>
+    //-------------------------------------------------------------------
+	//Tipo Iniciativa----------------------------------------------------
+	//-------------------------------------------------------------------
+	function myFunction() {
+		var elemento= document.getElementById("mySelect").value;
+		var info=document.getElementById("Modalidad");
+		var info2=document.getElementById("ModalidadCombo");
+		if(elemento=="Seleccione"){alert("Seleccione una opcion");}
+		//Hablita Modalidad de Contratacion
+		if(elemento=="Privada"){
+		info.innerHTML = "Modalidad de Contratacion :";
+		info2.innerHTML = '<select name="TipoIniciativa"><option>Seleccione</option><option>Administrativa Directa(PDT)</option><option>Administrativa Indirecta(TDR)</option></select>';
+		alert("Se habilito un nuevo campo en el formulario");
+		}	
+		//Habilita Modalidad de Participacion
+		if(elemento=="Publica"){
+		info.innerHTML = "Modalidad de Participacion :";
+		info2.innerHTML ='<select name="TipoIniciativa" ><option>Seleccione</option><option>Asociacion Publica Privada-APP</option><option>Obras por Impuesto-OXI</option><option>Iniciativa Privada Cofinanciada-IPC</option></select> ';
+		alert("Se habilito un nuevo campo en el formulario");
+		}	
+		}
+		
+		function limitarNomPrePro(elEvento, maximoCaracteres) {
+		var elemento = document.getElementById("NomPrePro");
+		// Obtener la tecla pulsada 
+		var evento = elEvento || window.event;
+		var codigoCaracter = evento.charCode || evento.keyCode;
+		// Permitir utilizar las teclas con flecha horizontal
+		if(codigoCaracter == 37 || codigoCaracter == 39) {
+		return true;
+		}
+		// Permitir borrar con la tecla Backspace y con la tecla Supr.
+		if(codigoCaracter == 8 || codigoCaracter == 46) {return true;}
+		else if(elemento.value.length >= maximoCaracteres ) {
+		alert("Maximo de caracteres permitidos"+maximoCaracteres);
+		return false;}
+		else {return true;}
+		}	
+		
+		function limitarHipProCen(elEvento, maximoCaracteres) {
+		var elemento = document.getElementById("HipProCen");
+		// Obtener la tecla pulsada 
+		var evento = elEvento || window.event;
+		var codigoCaracter = evento.charCode || evento.keyCode;
+		// Permitir utilizar las teclas con flecha horizontal
+		if(codigoCaracter == 37 || codigoCaracter == 39) {
+		return true;
+		}
+		// Permitir borrar con la tecla Backspace y con la tecla Supr.
+		if(codigoCaracter == 8 || codigoCaracter == 46) {return true;}
+		else if(elemento.value.length >= maximoCaracteres ) {
+		alert("Maximo de caracteres permitidos"+maximoCaracteres);
+		return false;}
+		else {return true;}
+		}
+		
+		
+		//“Nombre Preliminar del Proyecto” y “Hipotesis del Problema Central” no acepte Números, Arroba, Corchetes 
+		//y no sea mas de 300 y 400 caracteres respectivamente. 
+		function noPermitidos(texto){
+		var patron="0123456789@[]";
+		for(i=0; i<texto.length; i++){
+			if (patron.indexOf(texto.charAt(i),0)!=-1){
+				return 1;
+			}
+		}
+		return 0;
+		}
+		
+		function validar(valor) {
+		if (noPermitidos(valor)==1){
+		alert("DATO INCORRECTO...no debe contener,estos caracteres 0123456789@[]") ;
+		return (false);
+		} else {
+		return (true);
+		}
+		}
+		//------------------------------------------------------------------
+		//Costo de Elaboración del Estudio” --------------------------------
+		//------------------------------------------------------------------
+		var eventoPuntoCosEstSupimputCosElaEst=0;
+		var varDecimalesCosEstSupimputCosElaEst=0;
+		var valorTemporalCosEstSupimputCosElaEst="";
+		
+		function tiene_puntosimputCosElaEst(texto){
+		var patron=".";
+		var tiene=0;
+		if(patron.indexOf(texto.charAt(0),0)!=-1){return 1;}
+		for(i=0; i<texto.length; i++){
+		if (patron.indexOf(texto.charAt(i),0)!=-1){
+			tiene++;
+			}
+		}
+		//si tiene un solo punto  o ni uno 
+		if(tiene==1 || tiene==0){
+			if(tiene==0){eventoPuntoCosEstSupimputCosElaEst=0;}
+			else if(tiene==1){eventoPuntoCosEstSupimputCosElaEst=1;}
+		    return 0;
+		}
+		//tiene 2 o mas puntos
+		if(tiene>1){
+		eventoPuntoCosEstSupimputCosElaEst=0;
+		return 1;
+		}
+		}
+		
+		function isDigitimputCosElaEst(data) {
+		var numStr="0123456789.";
+		var k = 0;
+		for (i=0;i<data.length;i++) {
+		thisChar = data.substring(i, i+1);
+		if (numStr.indexOf(thisChar) != -1) k++;
+		}
+		if (k == data.length) return 1;
+		else return 0;
+		}
+	
+		function validarCosElaEst(elEvento,valor) {
+		// Obtener la tecla pulsada 
+		var evento = elEvento || window.event;
+		var codigoCaracter = evento.charCode || evento.keyCode;
+		var info=document.getElementById("DivCosElaEst");
+		if (isDigitimputCosElaEst(valor) && !tiene_puntosimputCosElaEst(valor)) 
+		{     
+			if(eventoPuntoCosEstSupimputCosElaEst==1)
+			{
+			if(codigoCaracter == 8){
+				if(valorTemporalCosEstSupimputCosElaEst==valor){}
+				else varDecimalesCosEstSupimputCosElaEst--;
+			}
+			else if(varDecimalesCosEstSupimputCosElaEst<=2) varDecimalesCosEstSupimputCosElaEst++;
+			}
+			else if (eventoPuntoCosEstSupimputCosElaEst==0){varDecimalesCosEstSupimputCosElaEst=0;}
+			valorTemporalCosEstSupimputCosElaEst=valor;
+			info.innerHTML = "OK";
+		//alert(" "+varDecimalesCosEstSupimputCosElaEst+"---"+eventoPuntoCosEstSupimputCosElaEst+"-----"+codigoCaracter+"-------"+valor);
+		}
+		else {
+		info.innerHTML = "NO VALIDO";
+		}
+		}	
+		
+		
+		function limitaCosElaEst(elEvento, maximoCaracteres) {
+		var elemento = document.getElementById("CosElaEst");
+		// Obtener la tecla pulsada 
+		var evento = elEvento || window.event;
+		var codigoCaracter = evento.charCode || evento.keyCode;
+		// Permitir utilizar las teclas con flecha horizontal
+		if(codigoCaracter == 37 || codigoCaracter == 39) {
+			return true;
+		}
+		// Permitir borrar con la tecla Backspace y con la tecla Supr.
+		if(codigoCaracter == 8 || codigoCaracter == 46) {		
+		return true;
+		}
+		else if(elemento.value.length >= maximoCaracteres || varDecimalesCosEstSupimputCosElaEst>2) {
+		if(varDecimalesCosEstSupimputCosElaEst>2 || codigoCaracter==8){}
+		return false;
+		}
+		else {
+		return true;
+		}
+		}
+		
+		//--------------------------------------------------------------
+		//“Costo Estimado de Supervisión”-------------------------------
+		//--------------------------------------------------------------
+		var eventoPuntoCosEstSup=0;
+		var varDecimalesCosEstSup=0;
+		var valorTemporalCosEstSup="";
+		
+		function tiene_puntosCosEstSup(texto){
+		var patron=".";
+		var tiene=0;
+		if(patron.indexOf(texto.charAt(0),0)!=-1){return 1;}
+		for(i=0; i<texto.length; i++){
+		if (patron.indexOf(texto.charAt(i),0)!=-1){
+			tiene++;
+			}
+		}
+		//si tiene un solo punto  o ni uno 
+		if(tiene==1 || tiene==0){
+			if(tiene==0){eventoPuntoCosEstSup=0;}
+			else if(tiene==1){eventoPuntoCosEstSup=1;}
+		    return 0;
+		}
+		//tiene 2 o mas puntos
+		if(tiene>1){
+		eventoPuntoCosEstSup=0;
+		return 1;
+		}
+		}
+		
+		function isDigitCosEstSup(data) {
+		var numStr="0123456789.";
+		var k = 0;
+		for (i=0;i<data.length;i++) {
+		thisChar = data.substring(i, i+1);
+		if (numStr.indexOf(thisChar) != -1) k++;
+		}
+		if (k == data.length) return 1;
+		else return 0;
+		}
+	
+		function validarCosEstSup(elEvento,valor) {
+		// Obtener la tecla pulsada 
+		var evento = elEvento || window.event;
+		var codigoCaracter = evento.charCode || evento.keyCode;
+		var info=document.getElementById("DivCosEstSup");
+		if (isDigitCosEstSup(valor) && !tiene_puntosCosEstSup(valor)) 
+		{     
+			
+			if(eventoPuntoCosEstSup==1)
+			{
+			if(codigoCaracter == 8){
+				if(valorTemporalCosEstSup==valor){}
+				else varDecimalesCosEstSup--;
+			}
+			else if(varDecimalesCosEstSup<=2) varDecimalesCosEstSup++;
+			}
+			else if (eventoPuntoCosEstSup==0){varDecimalesCosEstSup=0;}
+			valorTemporalCosEstSup=valor;
+			info.innerHTML = " OK";
+		//alert(" "+varDecimalesCosEstSup+"---"+eventoPuntoCosEstSup+"-----"+codigoCaracter+"-------"+valor);
+		}
+		else {
+		info.innerHTML = " NO VALIDO";
+		}
+		}	
+		
+		
+		function limitaCosEstSup(elEvento, maximoCaracteres) {
+		var elemento = document.getElementById("CosEstSup");
+		// Obtener la tecla pulsada 
+		var evento = elEvento || window.event;
+		var codigoCaracter = evento.charCode || evento.keyCode;
+		// Permitir utilizar las teclas con flecha horizontal
+		if(codigoCaracter == 37 || codigoCaracter == 39) {
+			return true;
+		}
+		// Permitir borrar con la tecla Backspace y con la tecla Supr.
+		if(codigoCaracter == 8 || codigoCaracter == 46) {		
+		return true;
+		}
+		else if(elemento.value.length >= maximoCaracteres || varDecimalesCosEstSup>2) {
+		if(varDecimalesCosEstSup>2 || codigoCaracter==8){}
+		return false;
+		}
+		else {
+		return true;
+		}
+		}
+	//-------------------------------------------------------
+	//Plazo de Estuido de Preinvervencion :------------------
+	//-------------------------------------------------------
+	
+	    function limitarPlaEstInt(elEvento, maximoCaracteres) {
+		var elemento = document.getElementById("PlaEstInt");
+		// Obtener la tecla pulsada 
+		var evento = elEvento || window.event;
+		var codigoCaracter = evento.charCode || evento.keyCode;
+		// Permitir utilizar las teclas con flecha horizontal
+		if(codigoCaracter == 37 || codigoCaracter == 39) {
+		return true;
+		}
+		// Permitir borrar con la tecla Backspace y con la tecla Supr.
+		if(codigoCaracter == 8 || codigoCaracter == 46) {return true;}
+		else if(elemento.value.length >= maximoCaracteres ) {
+		alert("Maximo de caracteres permitidos"+maximoCaracteres);
+		return false;}
+		else {return true;}
+		}	
+		
+		
+		function plazoValido12(texto){
+		if(texto.length==1){
+			for(i=0;i<10;i++){
+			if(texto.charAt(0)==i){return 0;}
+		    }
+			return 1;
+		}
+		else if(texto.length==2){
+		    if(texto.charAt(0)==1 && (texto.charAt(1)==0 || texto.charAt(1)==1 || texto.charAt(1)==2)){
+			return 0;
+			}
+			if(texto.charAt(0)==0){
+				for(i=1;i<10;i++){
+					if(texto.charAt(1)==i){return 0;}	
+				}
+			return 1;	
+			}
+			else {return 1;}
+		}
+		}
+		
+		
+		function validarPlaEstInt(elEvento,valor) {
+		var info=document.getElementById("DivPlaEstInt");
+		if (!plazoValido12(valor)){     
+		info.innerHTML="(Meses) OK";
+		}
+		else {
+		info.innerHTML="(Meses) NO VALIDO";
+		}
+		}	
+		
+		//-------------------------------------------------
+		//Fecha de registro------------------------------------
+		//-------------------------------------------------
+		function limitarFechaRegistro(elEvento, maximoCaracteres) {
+		var elemento = document.getElementById("FechaRegistro");
+		// Obtener la tecla pulsada 
+		var evento = elEvento || window.event;
+		var codigoCaracter = evento.charCode || evento.keyCode;
+		// Permitir utilizar las teclas con flecha horizontal
+		if(codigoCaracter == 37 || codigoCaracter == 39) {
+		return true;
+		}
+		// Permitir borrar con la tecla Backspace y con la tecla Supr.
+		if(codigoCaracter == 8 || codigoCaracter == 46) {return true;}
+		else if(elemento.value.length >= maximoCaracteres ) {
+		alert("Maximo de caracteres permitidos"+maximoCaracteres);
+		return false;}
+		else {return true;}
+		}	
+		
+				function isDigitFechaRegistro(data) {
+		var numStr="0123456789/";
+		var k = 0;
+		for (i=0;i<data.length;i++) {
+		thisChar = data.substring(i, i+1);
+		if (numStr.indexOf(thisChar) != -1) k++;
+		}
+		if (k == data.length) return 1;
+		else return 0;
+		}
+		
+		
+		function  formatoSlash(valor){
+		if(valor.length<3 ){ 
+		return 0;
+		}
+		else if(valor.length>2 && valor.length<6){
+		     if(valor.charAt(2)=="/"){return 0;}
+			 else return 1
+		}
+		else if(valor.length>2 && valor.length<11){
+				if(valor.charAt(2)=="/" && valor.charAt(5)=="/"){return 0;}
+				else return 1
+		}
+		else return 1;
+		}
+		
+		function validarDia(texto){
+		if(texto.charAt(0)==0 || texto.charAt(0)==1 || texto.charAt(0)==2 || texto.charAt(0)==3){
+			if(texto.charAt(1)=="") return 0;
+			else{	//01-09
+				if(texto.charAt(0)==0){
+					for(i=1;i<10;i++){
+					if(texto.charAt(1)==i){return 0;}
+					}
+					return 1;
+				}
+				//10-19,20-29
+				else if(texto.charAt(0)==1 || texto.charAt(0)==2){
+					for(i=0;i<10;i++){
+					if(texto.charAt(1)==i){return 0;}
+					}
+					return 1;
+				}
+				//30-31
+				else if(texto.charAt(0)==3 && (texto.charAt(1)==0 || texto.charAt(1)==1 )){
+					return 0;
+				}
+				else{
+					return 1;
+				}
+			}
+		}
+		else return 1;
+		}
+		
+		function  validarMes(texto){
+			if(texto.charAt(3)==0 || texto.charAt(3)==1){
+				if(texto.charAt(4)=="") return 0;
+				else{
+					//01-09
+					if(texto.charAt(3)==0){
+						for(i=1;i<10;i++){
+							if(texto.charAt(4)==i){return 0;}
+						}
+						return 1;
+					}
+					//10-11-12
+					else if(texto.charAt(3)==1 && (texto.charAt(4)==0 || texto.charAt(4)==1 || texto.charAt(4)==2 )){
+					return 0;
+					}
+					else{
+					return 1;
+					}
+				}
+			}
+			else return 1;
+		}
+		
+		function validarAnual(valor){
+		 if(valor.length>2 && valor.length<11 && (valor.charAt(6)==0 && valor.charAt(7)==0 && valor.charAt(8)==0 && valor.charAt(9)==0))
+		 {return 1;
+		 }
+		 else return 0;
+		}
+		
+		function  formatoFecha(valor){
+		if(valor.length<3 ){ 
+			if(!validarDia(valor)){return 0;}
+			else return 1;
+		}
+		else if(valor.length>2 && valor.length<6){
+		     if(!validarMes(valor) && !validarDia(valor)){return 0;}
+			 else return 1;
+		}
+		else if((valor.length>2 && valor.length<11) && !validarAnual(valor)){
+			if(!validarMes(valor) && !validarDia(valor)){
+				return 0;
+			}
+			else return 1;
+		}
+		else return 1;
+		}
+		
+		function validarFechaRegistro(elEvento,valor) {
+		var info=document.getElementById("DivFechaRegistro");
+		if (isDigitFechaRegistro(valor) && !formatoSlash(valor) && !formatoFecha(valor)){     
+			if(valor.length==10)info.innerHTML="OK";
+			else info.innerHTML="CONTINUE...";
+		}
+		else {
+		info.innerHTML="NO VALIDO";
+		}
+		}	
+		
+		//------------------------------------------------------------
+		//Boton Guardar-----------------------------------------------
+		//------------------------------------------------------------
+		function botonGuardar(){
+		var info1=document.getElementById("NomPrePro").value;
+		var info2=document.getElementById("FechaRegistro").value;
+			if(info2.length==10 && info1.length>1){
+			var codigoGrabado="SNIP-";
+			codigoGrabado=codigoGrabado+info2.charAt(6)+info2.charAt(7)+info2.charAt(8)+info2.charAt(9)+info2.charAt(3)+info2.charAt(4)+info2.charAt(0)+info2.charAt(1)+"-";
+			codigoGrabado=codigoGrabado+info1.charAt(4)+info1.charAt(5);
+			alert(codigoGrabado);
+			}
+			else{
+			  var respuesta="\n";
+			  //NomPrePro vacio FechaRegistro vacio
+			  if(info1.length==1 && info2.length==0 ) respuesta=respuesta+"Ingrese datos en el campo Nombre Preliminar del Proyecto\nIngrese datos en el campo Fecha de Registro";
+			 ////NomPrePro lleno FechaRegistro vacio
+			else  if(info1.length>0 && info2.length==0 )respuesta=respuesta+"\nIngrese datos en el campo Fecha de Registro";
+			 //NomPrePro vacio FechaRegistro lleno
+			 else  if(info1.length==1 && info2.length==10)respuesta=respuesta+"\nIngrese datos en el campo Nombre Preliminar del Proyecto";
+			  alert(respuesta);
+			}
+		}
+		
+		//----------------------------------------------
+		//GRILLA---------------------GRILLA-------------
+		//----------------------------------------------
+			function  cargarProvincias(){
+			
+			var Dep= document.getElementById("Departamento").selectedIndex;
+			var info=document.getElementById("Provincia");
+			var valorDepartamento= document.getElementById("Departamento").value;
+			var info3= document.getElementById("DivDepartamento");
+			
+			var info4= document.getElementById("DivProvincia");
+			var info5= document.getElementById("DivDistrito")
+			var info6= document.getElementById("DivCentroPoblado");
+			//limpia distrito ,provinica, cp
+			info4.innerHTML="";
+			info5.innerHTML="";
+			info6.innerHTML="";
+			
+			if(Dep==1){
+			info.innerHTML ='<option selected="true" value="Provincia">Provincia</option><option value="BAGUA                         ">BAGUA                         </option><option value="BONGARA                       ">BONGARA                       </option><option value="CHACHAPOYAS                   ">CHACHAPOYAS                   </option><option value="CONDORCANQUI                  ">CONDORCANQUI                  </option><option value="LUYA                          ">LUYA                          </option><option value="RODRIGUEZ DE MENDOZA          ">RODRIGUEZ DE MENDOZA          </option><option value="UTCUBAMBA                     ">UTCUBAMBA                     </option>';
+			}
+			else if(Dep==2){
+			info.innerHTML ='<option selected="true" value="Provincia">Provincia</option><option value="AIJA                          ">AIJA                          </option><option value="ANTONIO RAIMONDI              ">ANTONIO RAIMONDI              </option><option value="ASUNCION                      ">ASUNCION                      </option><option value="BOLOGNESI                     ">BOLOGNESI                     </option><option value="CARHUAZ                       ">CARHUAZ                       </option><option value="CARLOS FERMIN FITZCARRALD     ">CARLOS FERMIN FITZCARRALD     </option><option value="CASMA                         ">CASMA                         </option><option value="CORONGO                       ">CORONGO                       </option><option value="HUARAZ                        ">HUARAZ                        </option><option value="HUARI                         ">HUARI                         </option><option value="HUARMEY                       ">HUARMEY                       </option><option value="HUAYLAS                       ">HUAYLAS                       </option><option value="MARISCAL LUZURIAGA            ">MARISCAL LUZURIAGA            </option><option value="OCROS                         ">OCROS                         </option><option value="PALLASCA                      ">PALLASCA                      </option><option value="POMABAMBA                     ">POMABAMBA                     </option><option value="RECUAY                        ">RECUAY                        </option><option value="SANTA                         ">SANTA                         </option><option value="SIHUAS                        ">SIHUAS                        </option><option value="YUNGAY                        ">YUNGAY                        </option>';
+			}
+			else{
+
+			
+			info.innerHTML ='<option selected="true" value="Provincia">Provincia</option><option value="PROVINCIA 1">PROVINCIA  1</option><option value="PROVINCIA 2">PROVINCIA  2</option><option value="PROVINCIA 3">PROVINCIA  3</option><option value="PROVINCIA 4">PROVINCIA  4</option><option value="PROVINCIA 5">PROVINCIA  5</option><option value="PROVINCIA 6">PROVINCIA  6</option><option value="PROVINCIA 7">PROVINCIA  7</option><option value="PROVINCIA 8">PROVINCIA  8</option><option value="PROVINCIA 9">PROVINCIA  9</option>';
+			}
+			info3.innerHTML=""+valorDepartamento;
+		}
+	
+		function cargarDistritos(){
+			var Dep= document.getElementById("Departamento").selectedIndex;
+		    var Prov= document.getElementById("Provincia").selectedIndex;
+			var info=document.getElementById("Distrito");
+			var valorProvincia= document.getElementById("Provincia").value;
+			var info3= document.getElementById("DivProvincia");
+			
+			var info5= document.getElementById("DivDistrito")
+			var info6= document.getElementById("DivCentroPoblado");
+			//limpia provincia ,cp
+			info5.innerHTML="";
+			info6.innerHTML="";
+			if(Prov==1 && Dep==1){
+			info.innerHTML='<option selected="true" value="Distrito">Distrito</option><option value="ARAMANGO                      ">ARAMANGO                      </option><option value="BAGUA                         ">BAGUA                         </option><option value="COPALLIN                      ">COPALLIN                      </option><option value="EL PARCO                      ">EL PARCO                      </option><option value="IMAZA                         ">IMAZA                         </option><option value="LA PECA                       ">LA PECA                       </option>';
+			}
+			else if(Prov==2 && Dep==1){
+			info.innerHTML='<option selected="true" value="Distrito">Distrito</option><option value="CHISQUILLA                    ">CHISQUILLA                    </option><option value="CHURUJA                       ">CHURUJA                       </option><option value="COROSHA                       ">COROSHA                       </option><option value="CUISPES                       ">CUISPES                       </option><option value="FLORIDA                       ">FLORIDA                       </option><option value="JAZAN                         ">JAZAN                         </option><option value="JUMBILLA                      ">JUMBILLA                      </option><option value="RECTA                         ">RECTA                         </option><option value="SAN CARLOS                    ">SAN CARLOS                    </option><option value="SHIPASBAMBA                   ">SHIPASBAMBA                   </option><option value="VALERA                        ">VALERA                        </option><option value="YAMBRASBAMBA                  ">YAMBRASBAMBA                  </option>';
+			}
+			else{
+			info3.innerHTML="";
+			info.innerHTML='	<option selected="true" value="Distrito">Distrito</option><option value="DISTRITO 1">DISTRITO  1</option><option value="DISTRITO 2">DISTRITO  2</option><option value="DISTRITO 3">DISTRITO  3</option><option value="DISTRITO 4">DISTRITO  4</option><option value="DISTRITO 5">DISTRITO  5</option><option value="DISTRITO 6">DISTRITO  6</option><option value="DISTRITO 7">DISTRITO  7</option><option value="DISTRITO 8">DISTRITO  8</option><option value="DISTRITO 9">DISTRITO  9</option>';
+			}
+			info3.innerHTML=""+valorProvincia;
+		}
+		
+		
+		function mostrarCentroPoblado(){
+		var valorDistrito= document.getElementById("Distrito").value;
+		var info3= document.getElementById("DivDistrito");
+		    //limpia provincia
+			var info6= document.getElementById("DivCentroPoblado");
+			info6.innerHTML="";
+		
+		info3.innerHTML=""+valorDistrito;
+		}
+		
+		function mostrarFaltante(){
+		var valorCentroPoblado= document.getElementById("CentroPoblado").value;
+		var info3= document.getElementById("DivCentroPoblado");
+		info3.innerHTML=""+valorCentroPoblado;
+		}
+		//-----------------------------------------------------------------
+		//----BOTON AGREGAR----------------------------------------------
+		//----------------------------------------------------------------
+	     function botonAgregar(){
+		 document.getElementById("Departamento").disabled=false;
+			document.getElementById("Provincia").disabled=false;
+			document.getElementById("Distrito").disabled=false;
+			document.getElementById("CentroPoblado").disabled=false;
+		 alert("Debe ingresar los datos en la siguiente secuencia\n---DEPARTAMENTO\n---PROVINCIA\n---DISTRITO\n--CENTRO PROBLADO");
+		 }
+		//-------------------------------------------------------------------------------------
+		//-BOTON ELIMINAR--------BOTON EDITAR ---------BOTON CONFIRMAR-------------------------
+		//-------------------------------------------------------------------------------------
+		function botonEliminar(){
+			var info3= document.getElementById("DivDepartamento");
+			var info4= document.getElementById("DivProvincia");
+			var info5= document.getElementById("DivDistrito")
+			var info6= document.getElementById("DivCentroPoblado");
+			//limpia distrito ,provinica, cp
+			info3.innerHTML="";
+			info4.innerHTML="";
+			info5.innerHTML="";
+			info6.innerHTML="";
+			alert("SI DESEA INGRESAR DATOS DE NUEVO\n DE CLICK EN EL BOTON AGREGAR");
+	    }
+		
+		function botonConfirmar(){
+		    var info3= document.getElementById("Departamento").value;
+			var info4= document.getElementById("Provincia").value;
+			var info5= document.getElementById("Distrito").value;
+			var info6= document.getElementById("CentroPoblado").value;
+			if(info3=="Departamento" && info4=="Provincia" && info5=="Distrito" && info6=="CentroPoblado"){
+			alert("Ingrese Datos");
+			}
+			else if(info4=="Provincia" && info5=="Distrito" && info6=="CentroPoblado"){
+			alert("Ingrese Datos de provincia,distrito,centro poblado");
+			}
+			else if(info5=="Distrito" && info6=="CentroPoblado"){
+			alert("Ingrese Datos de distrito,centro poblado");
+			}
+			else if(info6==""){
+			alert("Ingrese Datos de centro poblado");
+			}
+			else if(info3!="Departamento" && info4!="Provincia" && info5!="Distrito" && info6!="CentroPoblado"){
+			document.getElementById("Departamento").disabled=true;
+			document.getElementById("Provincia").disabled=true;
+			document.getElementById("Distrito").disabled=true;
+			document.getElementById("CentroPoblado").disabled=true;
+			alert("Datos Ingresados correctamente.....");
+			}
+			else{
+			alert(info3+" "+info4+" "+info5+" "+info6);
+			alert("Ingrese bien los datos");
+			}
+		}
+		
+		
+		function botonEdiar(){
+		document.getElementById("Departamento").disabled=false;
+			document.getElementById("Provincia").disabled=false;
+			document.getElementById("Distrito").disabled=false;
+			document.getElementById("CentroPoblado").disabled=false;
+		}
+		
+	</script>
+    <div style=" width: 1020px; height: 450px; overflow-y: scroll;  overflow-x:scroll" name="formu1" id="formu1" class="container">
+	<br><br>
+    <div class="text-left">
+	<FONT SIZE="5"COLOR="RED"FACE="Verdana"> <B>Informacion Preliminar</B></FONT>
+	</div>
+	<div class="hrRojo"></div>
+	<div class="vete-derecha" >
+    <input type="image" id="Guardar" onClick="botonGuardar();"src="img/Guardar.png" >
+	</div>
+	<br><br>
+	<center><FONT SIZE="2"COLOR="black"FACE="Verdana"> <B>La informacion registrada en esta ficha tiene caracter de Declaracion Jurada segun D.S. N° 102-2007-EF
+	</B></FONT><center>
+	<br>
+    <div class="col-md-4 text-left">
+	<!--Tipo de Iniciativa: -->
+	Tipo de Iniciativa:
+	</div>
+    <div class="col-md-6 text-left">
+		<select  id="mySelect" name="mySelect" onchange="myFunction()">
+		<option value="Seleccione">Seleccione
+		<option value="Publica">Publica
+		<option value="Privada">Privada
+		</select>
+    </div>  
+	<br><br>	
+    <div class="text-left">
+	<FONT SIZE="3"COLOR="blue"FACE="Verdana"> <B>Actor</B></FONT>
+	</div>
+	<div class="hrAzulChico"></div>	
+	<br>
+	
+	<!--campo pliego -->
+	<div  class="col-md-4 text-left">
+	Pliego :
+	</div>
+	<div class="col-md-6 text-left" >
+    <input "type="text" name="Pliego" id="Pliego" size="45" >
+	</div>
+	<!--campo Nombre Unidad -->
+	<div class="col-md-4 text-left">
+	Nombre de la Unidad Formuladora :
+	</div>
+    <div class="col-md-6 text-left" >
+	<input type="text" name="NomUniForm" id="NomUniForm"size="45" >
+	</div>
+	<br><br><br>
+	
+	<!--Datos Basicos del PIP -->
+	<div class="text-left">
+	<FONT SIZE="3"COLOR="blue"FACE="Verdana"> <B>Datos Basicos del PIP</B></FONT>
+	</div>
+	<div class="hrAzulChico"></div>	
+	<!--Fecha de registro -->
+	<br>
+    <div class="col-md-4 text-left ">Fecha de Registro (DD/MM/YYYY):</div>
+    <div class="col-md-6 text-left" >
+    <input type="text" id="FechaRegistro" name="FechaRegistro" onkeypress="return limitarFechaRegistro(event,10);" onkeyup="validarFechaRegistro(event,FechaRegistro.value)">
+	</div>
+	 <div id="DivFechaRegistro" class="col-md-2 text-left" ></div>
+	<br>
+	<!--Ambito de intervencion -->
+    <div class="col-md-4 text-left ">Ambito de intervencion :</div>
+    <div class="col-md-6 text-left" >
+    <input type="image" onClick="botonAgregar();" src="img/Agregar.png" >
+	</div>
+	<br><br>
+	<!--Grilla-->
+			<div id="idGrillaGeografica">
+	<div class="col-md-2 " style=" border: 1px solid #000000;background-image:url(img/Grilla.png);width:190px;height:95px;">Departamento<br>
+	<div id="DivDepartamento" value="DivDepartamento" class="vete-izq"></div><br><br>
+		<select name="Departamento"  class="vete-izq" style="width: 160px" id="Departamento" onchange="cargarProvincias()">
+		<option selected="true" value="Departamento">Departamento   </option>
+		<option value="AMAZONAS       ">AMAZONAS       </option>
+		<option value="ANCASH         ">ANCASH         </option>
+		<option value="APURIMAC       ">APURIMAC       </option>
+		<option value="AREQUIPA       ">AREQUIPA       </option>
+		<option value="AYACUCHO       ">AYACUCHO       </option>
+		<option value="CAJAMARCA      ">CAJAMARCA      </option>
+		<option value="CUSCO          ">CUSCO          </option>
+		<option value="HUANCAVELICA   ">HUANCAVELICA   </option>
+		<option value="HUANUCO        ">HUANUCO        </option>
+		<option value="ICA            ">ICA            </option>
+		<option value="JUNIN          ">JUNIN          </option>
+		<option value="LA LIBERTAD    ">LA LIBERTAD    </option>
+		<option value="LAMBAYEQUE     ">LAMBAYEQUE     </option>
+		<option value="LIMA           ">LIMA           </option>
+		<option value="LORETO         ">LORETO         </option>
+		<option value="MADRE DE DIOS  ">MADRE DE DIOS  </option>
+		<option value="MOQUEGUA       ">MOQUEGUA       </option>
+		<option value="PASCO          ">PASCO          </option>
+		<option value="PIURA          ">PIURA          </option>
+		<option value="PUNO           ">PUNO           </option>
+		<option value="SAN MARTIN     ">SAN MARTIN     </option>
+		<option value="TACNA          ">TACNA          </option>
+		<option value="TUMBES         ">TUMBES         </option>
+		<option value="UCAYALI        ">UCAYALI        </option>
+		</select> 
+	</div>
+	
+	<div class="col-md-2 " style=" border: 1px solid #000000;background-image:url(img/Grilla.png);width:190px;height:95px;">Provincia<br>
+	<div id="DivProvincia"  value="DivProvincia" class="vete-izq"></div><br><br>
+		<select name="Provincia"  class="vete-izq" style="width: 160px" id="Provincia" onchange="cargarDistritos()">
+		<option selected="true" value="Provincia">Provincia</option>
+		<option value="PROVINCIA 1">PROVINCIA  1</option>
+		<option value="PROVINCIA 2">PROVINCIA  2</option>
+		<option value="PROVINCIA 3">PROVINCIA  3</option>
+		<option value="PROVINCIA 4">PROVINCIA  4</option>
+		<option value="PROVINCIA 5">PROVINCIA  5</option>
+		<option value="PROVINCIA 6">PROVINCIA  6</option>
+		<option value="PROVINCIA 7">PROVINCIA  7</option>
+		<option value="PROVINCIA 8">PROVINCIA  8</option>
+		<option value="PROVINCIA 9">PROVINCIA  9</option>
+		</select> 
+	</div>
+	
+	<div class="col-md-2 " style=" border: 1px solid #000000;background-image:url(img/Grilla.png);width:190px;height:95px;">Distrito<br>
+	<div id="DivDistrito" value="DivDistrito" class="vete-izq"></div><br><br>
+		<select name="Distrito" class="vete-izq" style="width: 160px" id="Distrito" onchange="mostrarCentroPoblado()">
+		<option selected="true" value="Distrito">Distrito</option>
+		<option value="DISTRITO 1">DISTRITO  1</option>
+		<option value="DISTRITO 2">DISTRITO  2</option>
+		<option value="DISTRITO 3">DISTRITO  3</option>
+		<option value="DISTRITO 4">DISTRITO  4</option>
+		<option value="DISTRITO 5">DISTRITO  5</option>
+		<option value="DISTRITO 6">DISTRITO  6</option>
+		<option value="DISTRITO 7">DISTRITO  7</option>
+		<option value="DISTRITO 8">DISTRITO  8</option>
+		<option value="DISTRITO 9">DISTRITO  9</option>
+		</select> 
+	</div>
+	<div class="col-md-2 " style=" border: 1px solid #000000;background-image:url(img/Grilla.png);width:190px;height:95px;">Centro Poblado<br>
+	<div id="DivCentroPoblado" value="DivCentroPoblado" class="vete-izq"></div><br><br>
+		<select name="CentroPoblado" class="vete-izq" style="width: 160px" id="CentroPoblado" onchange="mostrarFaltante()">
+		<option selected="true" value="CentroPoblado">CentroPoblado</option>
+		<option value="Centro Poblado 1">Centro Poblado 1</option>
+		<option value="Centro Poblado 2">Centro Poblado 2</option>
+		<option value="Centro Poblado 3">Centro Poblado 3</option>
+		<option value="Centro Poblado 4">Centro Poblado 4</option>
+		<option value="Centro Poblado 5">Centro Poblado 5</option>
+		<option value="Centro Poblado 6">Centro Poblado 6</option>
+		<option value="Centro Poblado 7">Centro Poblado 7</option>
+		<option value="Centro Poblado 8">Centro Poblado 8</option>
+		<option value="Centro Poblado 9">Centro Poblado 9</option>
+		<option value="Centro Poblado 10">Centro Poblado 10</option>
+		<option value="Centro Poblado 11">Centro Poblado 11</option>
+		<option value="Centro Poblado 12">Centro Poblado 12</option>
+		</select> 
+	</div>
+	<div class="col-md-2 " style=" border: 1px solid #000000;background-image:url(img/Grilla2.png);width:190px;height:95px;"><br>
+	<input class="vete-izq" type="image" onClick="botonEdiar();" src="img/Editar.png" >
+	<input class="vete-derecha" type="image" onclick="botonEliminar();" src="img/Eliminar.png" ><br><br>
+	<input class="vete-derecha" type="image" onclick="botonConfirmar();" src="img/Confirmar.png" >
+	</div>
+	</div>
+	<br><br><br><br><br><br><br>
+	<!--Funcion -->
+    <div class="col-md-4 text-left" >Funcion :</div>
+    <div class="col-md-2 text-left">
+      <select class="text-left" name="TipoIniciativa" >
+      <option>Seleccione</option>
+      <option>opcion1</option>
+      </select> 
+     </div>
+	<div class="col-md-6 text-left">
+	<FONT SIZE="1" COLOR="black"FACE="Verdana"> <B>Existen 5 proyectos en este ambito de intervencion</B></FONT>
+	<A HREF=""><U>Ver informacion</U></A>,
+	</div>
+	<br><br>
+	<!--Codigo  de objeto de Intervencion -->
+    <div class="col-md-4 text-left" >Codigo  de objeto de Intervencion  :</div>
+    <div class="col-md-4 text-left">
+    <input type="text" name="CoObjInter" id="CoObjInter">
+	</div>
+	<br><br>
+	<!--Nombre Preliminar del Proyecto -->
+    <div class="col-md-4 text-left" >Nombre Preliminar del Proyecto  :</div>
+    <div class="col-md-8 text-left">
+	<div id="limitaNomPrePro"></div>
+    <textarea type="text" cols="70" id="NomPrePro" name="NomPrePro"  onkeypress="return limitarNomPrePro(event,300);" onkeyup="validar(NomPrePro.value)" >
+	</textarea>
+	</div>
+	<br><br>
+	<!--Hipotesis del Problema Central -->
+    <div class="col-md-4 text-left" >Hipotesis del Problema Central  :</div>
+    <div class="col-md-8 text-left">
+    <textarea type="text" cols="70" id="HipProCen" name="HipProCen"  onkeypress="return limitarHipProCen(event,400);" onkeyup="validar(HipProCen.value)">
+	</textarea>
+	</div>
+	<br><br>
+	<!--Costo de Elaboracion de Estudio -->
+    <div class="col-md-4 text-left" >Costo de Elaboracion de Estudio :</div>
+    <div class="col-md-2 text-left" >
+      <select name="TipoIniciativa" >
+      <option>S/.</option>
+      </select> 
+    </div>  
+	<div class="col-md-2 text-left">
+    <input type="text" id="CosElaEst" name="CosElaEst" size="15" maxlength="84" onkeypress="return limitaCosElaEst(event,14);" onkeyup="validarCosElaEst(event,CosElaEst.value)">
+	</div>
+	<div class="col-md-2 text-left" id="DivCosElaEst">
+	</div>
+	<br><br>
+		<!--Plazo de Estuido de Preintervencion -->
+    <div class="col-md-4 text-left" >Plazo de Estuido de Preinvervencion :</div>
+	<div class="col-md-2 text-left">
+    <input type="text" id="PlaEstInt" name="PlaEstInt" size="15" onkeypress="return limitarPlaEstInt(event,2);" onkeyup="validarPlaEstInt(event,PlaEstInt.value)">
+	</div>
+	<div id="DivPlaEstInt" class="col-md-4 text-left">(Meses)
+	</div>
+	<br><br>
+		<!--Costo Estimado de Supervision -->
+    <div  class="col-md-4 text-left" >Costo Estimado de Supervision :</div>
+    <div class="col-md-2 text-left" size="15">
+      <select name="TipoIniciativa" >
+      <option>S/.</option>
+      </select> 
+    </div>  
+	<div class="col-md-2 text-left">
+    <input type="text" id="CosEstSup" name="CosEstSup" size="15" maxlength="84" onkeypress="return limitaCosEstSup(event,14);" onkeyup="validarCosEstSup(event,CosEstSup.value)">
+	</div>
+	<div class="col-md-2 text-left" id="DivCosEstSup">
+	</div>
+	<br><br>
+	<!--Modalidad de Contratacion -->
+    <div id="Modalidad" class="col-md-4 text-left" ></div>
+    <div id="ModalidadCombo" class="col-md-6 text-left" size="15">
+    </div> 
+	<br><br>
+	<!--Archivo (Formato PDF) -->
+    <div class="col-md-4 text-left" >Archivo (Formato PDF)  :</div>
+    <div class="col-md-6 text-left">
+    <input type="text" name="ArchForPdf" size="30" maxlength="84" >
+	</div>
+	<div class="col-md-2 text-left" >
+    <input type="image" onClick="parent.location='http://www.google.com/'" src="img/Cargar.png" >
+	</div>
+	<br><br>
+	<div class="text-left">
+	<FONT SIZE="2"COLOR="black"FACE="Verdana"> <B>Informacion de Interes</B></FONT>
+	</div>
+	<div class="hrNegroChico"></div>	
+	<br><br>
+   </div>
+</section>
+
+<footer>
+Copyright © Jesus de las Casas
+</footer>
+</body>
+</html>

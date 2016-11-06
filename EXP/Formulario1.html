@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">	
+	<link rel="stylesheet" href="css/main.css">
+	<link rel="shortcut icon" href="img/das-icon.ico"/>
+	
+	<script language="javascript" type="text/javascript">
+			function comprobar(){
+				var dni = document.formu1.user.value;
+				var password = document.formu1.password.value;
+				if(true==isNumber(dni) && dni.length==8){
+					//alert("SUCCESS1");
+					if(dni==reverseObj(password)){
+						alert("Contraseña válida");
+						return true
+					}
+					else{
+						alert("Contraseña incorrecta");
+						reset();
+						return false;	
+					} 
+				}
+				else{
+					alert("Ingrese correctamente sus DNI");
+					return false;
+				}
+				/*alert(reverseObj(password));
+				alert(isNumber(dni));
+				alert("DNI="+dni+"PASSWORD="+password);*/
+			}
+
+			function isNumber (obj) {//revisa si es un numero, nulls y cadenas vacias
+ 				 return ! isNaN (obj-0) && obj !== null && obj !== "" && obj !== false;
+			}
+			function reverseObj(obj){
+				var cadena="";
+				 var array=obj.split("");           // Divide en caracteres individuales
+				 array.reverse();//revierta array
+				 for(var i=0;i<array.length;i++){//cada caracter se guarda en cadena
+				 	cadena+=array[i];
+				 }
+				 return cadena;
+			}
+			function reset(){//Resetea la casilla password
+				document.formu1.password.value="";
+			}
+			
+	</script>
+
+	<title>Login</title>
+</head>
+<body>	<li class="hrAzul">
+			</li>
+	<ul>
+			
+	        <div class="rectanguloGris" align="center">
+			<li class="col-md-2 text-left">
+				<img height="40" width="570" src="img/das-icon.png">
+			</li>
+			<li class="col-md-4  inline-block" >
+				<FONT SIZE="3"COLOR="BLACK"FACE="Verdana"><B>Aplicativos informaticos del Sistema Nacional de<br> Inversi&#242;n P&#250;blica-SNIP</B></FONT>
+			</li>
+			<input type="image" onClick="parent.location='sorryF1.html'" src="img/direccion.png">
+			</div>
+			<li class="hrGris">
+			</li>
+		    <br><br>
+			<li class="col-md-2 text-left">
+				<FONT SIZE="5"COLOR="RED"FACE="Verdana"> <B>     Bienvenido</B></FONT>
+			</li>
+			<input class="derecha" type="image" onClick="parent.location='http://www.google.com/'" src="img/VolverInicio.png" >
+			<br>
+			<li class="col-md-4 hrRojo inline-block">
+			</li>
+	</ul>
+	<br><br><br><br>
+	<div class="rectanguloBlanco" >
+	<FONT SIZE="5"COLOR="BLACK"FACE="Verdana">Autentificaci&#243;n de Usuario</FONT>
+	</div>
+	<br>
+	<form method="post" name="formu1" id="formu1" action="Formulario2.html" onsubmit="return comprobar()">
+	<div class="rectangulo" align="right">
+	<br><br>
+	<p class="text-center negro">
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Usuario:
+		<input type="text" name="user" value="" size="20" maxlength="8">
+	<br><br>
+		Contraseña:
+		<input type="password" name="password" value="" size="20" maxlength="10">
+	<br><br>
+		<input type="image" src="img/Ingresar.png">
+		
+		<A HREF="https://www.live.com/"><U>¿Olvid&#243; contraseña?</U></A>,
+    </div>
+	</form>
+
+</body>
+</html>
